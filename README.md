@@ -6,6 +6,8 @@ An app for voting on what you like the most.
 
 I have seen many apps that enable voting or store data for polls, but I have not found one that does exactly what I want.  If you know of an app that fits the description of this app, please let me know :smile: .
 
+One principle I feel is important is that voters should be encouraged to vote for what they think is best, without fearing that their vote will be lost if they vote for something that does not win.  If you take a chance and vote for an outsider, your vote should still count for or against the lead candidates.
+
 ## Example: Choose a project name
 
 What starting a project, it can be good to actually name it to give the participants a sense of what the purpose of the project is.  All participants should have the right to propose suggestions for the project name, but when there are too many suggestions, it becomes very hard to find the best one.
@@ -49,94 +51,9 @@ Let every participant be allowed to add as many suggestions they want until the 
 | name 2  | name 1  | name 4  | name 3  |
 | name 4  | name 3  | name 1  | name 1  |
 
-
 When voting is completed, we try to find a winner by looking at the suggestions at the top of everyone's list.  If a suggestion is at the top of over 50% of the voter's lists, we have a winner!
 
-#### Negative voting
-
-If no suggestion is at the top of over 50% of the voters, we start removing the suggestions at the bottom of the voters list.  We remove the suggestion that is at the bottom of most voter's list.  After removal, the suggestions below the removed one are moved up.
-
-We only want to remove choices that cannot get over 50% of the votes compared to its contestants, so we look at the bottom of the voter's lists for the worst candidates:
-
-```ruby
-['name 4', 'name 3', 'name 1', 'name 1']
-```
-
-We add the percentages and see if any of them are over 50%.  Each entry adds 25% since we have 4 voters:
-
-```ruby
-{'name 1' => 2/4, 'name 3' => 1/4, 'name 4' => 1/4}
-```
-
-"name 1" has exactly 50% of the negative vote, but we cannot remove it yet since the suggestion could still tie with another name if they are first place for two (50%) of the voters.
-
-So we look at the second to last row:
-
-```ruby
-['name 2', 'name 1', 'name 4', 'name 3']
-```
-
-Adding these results to the previous gives us this negative vote:
-
-```ruby
-{'name 1' => 3/4, 'name 2' => 1/4, 'name 3' => 2/4, 'name 4' => 2/4}
-```
-
-"name 1" now has over 50% of the negative vote, and can be eliminated from the contest.  With 'name 1' removed, our table now looks like this:
-
-| Voter A | Voter B | Voter C | Voter D |
-|---------|---------|---------|---------|
-| name 3  | name 2  | name 3  | name 4  |
-| name 2  | name 4  | name 2  | name 2  |
-| name 4  | name 3  | name 4  | name 3  |
-
-Again we start by looking at the first row to see if there is a candidate with over 50%.  'name 3' has exactly 50%, but that is not enought to win, only tie.  So we look at the bottom row again to eliminate the weakest candidate:
-
-```ruby
-['name 4', 'name 3', 'name 4', 'name 3']
-```
-
-The negative vote is:
-
-```ruby
-{'name 3' => 2/4, 'name 4' => 2/4}
-```
-
-Again no clear candidate, so we need to look at the next row:
-
-```ruby
-['name 2', 'name 4', 'name 2', 'name 2']
-```
-
-The negative vote is:
-
-```ruby
-{'name 2' => 3/4, 'name 3' => 2/4, 'name 4' => 3/4}
-```
-Both 'name 2' and 'name 4' broke the 50% barrier and can be removed.  Without them our table looks like this:
-
-| Voter A | Voter B | Voter C | Voter D |
-|---------|---------|---------|---------|
-| name 3  | name 3  | name 3  | name 3  |
-
-Again we look at the first row, and we now have a candidate with over 50% of the votes:  'name 3'.  Looking at the original voting table:  **Does this seem fair?**
-
-
-
-#### Positive voting
-
-Here are the original voting tables again:
-
-| Voter A | Voter B | Voter C | Voter D |
-|---------|---------|---------|---------|
-| name 1  | name 2  | name 3  | name 4  |
-| name 3  | name 4  | name 2  | name 2  |
-| name 2  | name 1  | name 4  | name 3  |
-| name 4  | name 3  | name 1  | name 1  |
-
-If no suggestion is at the top of over 50% of the voters, we start removing the suggestions not present at the **top** of the voters list.  After removal, the suggestions below the removed one are moved up.
-
-We only want to keep choices that get over 50% of the votes as we count downwards from the top:
+If no suggestion is at the top of over 50% of the voters, we start removing the suggestions not present at the top of the voters' list.  After removal, the suggestions below the removed one are moved up.
 
 ```ruby
 ['name 1', 'name 2', 'name 3', 'name 4']
@@ -156,13 +73,13 @@ So we look at the second row:
 ['name 3', 'name 4', 'name 2', 'name 2']
 ```
 
-Adding these results to the previous gives us this positive vote:
+Adding these results to the previous gives us this vote:
 
 ```ruby
 {'name 1' => 1/4, 'name 2' => 3/4, 'name 3' => 2/4, 'name 4' => 2/4}
 ```
 
-"name 2" now has over 50% of the positive vote, and we can eliminate the weakest candidate: 'name 1'.  With 'name 1' removed, our table now looks like this:
+"name 2" now has over 50% of the vote, and we can eliminate the weakest candidate: 'name 1'.  With 'name 1' removed, our table now looks like this:
 
 | Voter A | Voter B | Voter C | Voter D |
 |---------|---------|---------|---------|
@@ -193,29 +110,6 @@ Again we start by looking at the first row to see if there is a candidate with o
 | name 2  | name 2  | name 2  | name 2  |
 
 Again we look at the first row, and we now have a candidate with over 50% of the votes:  'name 2'.  Looking at the original voting table:  **Does this seem fair?**
-
-
-
-#### Positive vs Negative voting
-
-Original voting table:
-
-| Voter A | Voter B | Voter C | Voter D |
-|---------|---------|---------|---------|
-| name 1  | name 2  | name 3  | name 4  |
-| name 3  | name 4  | name 2  | name 2  |
-| name 2  | name 1  | name 4  | name 3  |
-| name 4  | name 3  | name 1  | name 1  |
-
-Table with 'name 1' removed:
-
-| Voter A | Voter B | Voter C | Voter D |
-|---------|---------|---------|---------|
-| name 3  | name 2  | name 3  | name 4  |
-| name 2  | name 4  | name 2  | name 2  |
-| name 4  | name 3  | name 4  | name 3  |
-
-Using positive voting 'name 2' wins since every voter has 'name 2' in first or second place, while using negative voting 'name 3' wins since it had a strong presense at the top.
 
 
 
