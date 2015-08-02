@@ -62,7 +62,7 @@ We only want to remove choices that cannot get over 50% of the votes compared to
 ['name 4', 'name 3', 'name 1', 'name 1']
 ```
 
-We add the percentages and see if any of the are over 50%.  Each entry adds 25% sicnce we have 4 voters:
+We add the percentages and see if any of them are over 50%.  Each entry adds 25% since we have 4 voters:
 
 ```ruby
 {'name 1' => 2/4, 'name 3' => 1/4, 'name 4' => 1/4}
@@ -120,6 +120,81 @@ Both 'name 2' and 'name 4' broke the 50% barrier and can be removed.  Without th
 | name 3  | name 3  | name 3  | name 3  |
 
 Again we look at the first row, and we now have a candidate with over 50% of the votes:  'name 3'.  Looking at the original voting table:  **Does this seem fair?**
+
+
+
+
+
+#### Positive voting
+
+Here are the original voting tables again:
+
+| Voter A | Voter B | Voter C | Voter D |
+|---------|---------|---------|---------|
+| name 1  | name 2  | name 3  | name 4  |
+| name 3  | name 4  | name 2  | name 2  |
+| name 2  | name 1  | name 4  | name 3  |
+| name 4  | name 3  | name 1  | name 1  |
+
+If no suggestion is at the top of over 50% of the voters, we start removing the suggestions not present at the **top** of the voters list.  After removal, the suggestions below the removed one are moved up.
+
+We only want to keep choices that get over 50% of the votes as we count downwards from the top:
+
+```ruby
+['name 1', 'name 2', 'name 3', 'name 4']
+```
+
+We add the percentages and see if any of them are over 50%.  Each entry adds 25% since we have 4 voters:
+
+```ruby
+{'name 1' => 1/4, 'name 2' => 1/4, 'name 3' => 1/4, 'name 4' => 1/4}
+```
+
+All candidates have an equal share of 25%, so we cannot remove any of them yet.
+
+So we look at the second row:
+
+```ruby
+['name 3', 'name 4', 'name 2', 'name 2']
+```
+
+Adding these results to the previous gives us this positive vote:
+
+```ruby
+{'name 1' => 1/4, 'name 2' => 3/4, 'name 3' => 2/4, 'name 4' => 2/4}
+```
+
+"name 2" now has over 50% of the positive vote, and we can eliminate the weakest candidate: 'name 1'.  With 'name 1' removed, our table now looks like this:
+
+| Voter A | Voter B | Voter C | Voter D |
+|---------|---------|---------|---------|
+| name 3  | name 2  | name 3  | name 4  |
+| name 2  | name 4  | name 2  | name 2  |
+| name 4  | name 3  | name 4  | name 3  |
+
+Again we start by looking at the first row to see if there is a candidate with over 50%.
+
+```ruby
+['name 3', 'name 2', 'name 3', 'name 4']
+
+{'name 2' => 1/4, 'name 3' => 2/4, 'name 4' => 1/4}
+```
+
+'name 3' has exactly 50%, but that is not enought to win, only tie.  So we add the second row to the first and get this positive vote:
+
+```ruby
+['name 2', 'name 4', 'name 2', 'name 2']
+
+{'name 2' => 4/4, 'name 3' => 2/4, 'name 4' => 2/4}
+```
+
+'name 2' got over 50% of the positive vote, so we can eliminate the weakest candidates, 'name 3' and 'name 4', tied at the bottom.  Without them our table looks like this:
+
+| Voter A | Voter B | Voter C | Voter D |
+|---------|---------|---------|---------|
+| name 2  | name 2  | name 2  | name 2  |
+
+Again we look at the first row, and we now have a candidate with over 50% of the votes:  'name 2'.  Looking at the original voting table:  **Does this seem fair?**
 
 
 
