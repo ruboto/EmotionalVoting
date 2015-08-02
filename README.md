@@ -127,4 +127,4 @@ In some use cases, the people who should be allowed to submit suggestions will n
 
 #### Mark suggestion as "not acceptable"
 
-In addition to order each suggestion by how much you like it, voters can mark a suggestion as "Not acceptable".  This makes it possible that the winner does not actually get 100% of the votes in the end, and the actually percentage is a reflection of how many of the voters felt this suggestion was at all acceptable.  A low number indicates poor consensus.
+In addition to order each suggestion by how much you like it, voters can mark a suggestion as "Not acceptable".  This makes it possible that the winner does not actually get 100% of the votes in the end, and the actual percentage is a reflection of how many of the voters felt this suggestion was at all acceptable.  A low number indicates poor consensus.
