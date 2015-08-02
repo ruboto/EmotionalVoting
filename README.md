@@ -52,11 +52,37 @@ Let every participant be allowed to add as many suggestions they want until the 
 
 When voting is completed, we try to find a winner by looking at the suggestions at the top of everyone's list.  If a suggestion is at the top of over 50% of the voter's lists, we have a winner!
 
-If no suggestion is at the top of over 50% of the voters, we start removing the topmost suggestion of some of the voters list.  We remove the least voted for suggestion that is at the top of the voter's list.  This will move the second most favorite choice up to first place.
+#### Negative voting
 
-We only want to remove choices that cannot get over 50% of the votes compared to its contestants, so we look at the bottom of the voter's lists for the worst candidates: ['name 4', 'name 3', 'name 1', 'name 1'].  We add the percentages and see if any of the are over 50%.  Each entry adds 25% sicnce we have 4 voters:  {'name 1' => 2/4, 'name 3' => 1/4, 'name 4' => 1/4}.  "name 1" has exactly 50% of the negative vote, but we cannot remove it yet since the suggestion could still tie with another name if they are first place for two (50%) of the voters.
+If no suggestion is at the top of over 50% of the voters, we start removing the suggestions at the bottom of the voters list.  We remove the suggestion that is at the bottom of most voter's list.  After removal, the suggestions below the removed one are moved up.
 
-So we look at the second to last row:  ['name 2', 'name 1', 'name 4', 'name 3'].  Adding these results to the previous gives us this negative vote: {'name 1' => 3/4, 'name 2' => 1/4, 'name 3' => 2/4, 'name 4' => 2/4}.  "name 1" now has over 50% of the negative vote, and can be eliminated from the contest.  With 'name 1' removed, our table now looks like this:
+We only want to remove choices that cannot get over 50% of the votes compared to its contestants, so we look at the bottom of the voter's lists for the worst candidates:
+
+```ruby
+['name 4', 'name 3', 'name 1', 'name 1']
+```
+
+We add the percentages and see if any of the are over 50%.  Each entry adds 25% sicnce we have 4 voters:
+
+```ruby
+{'name 1' => 2/4, 'name 3' => 1/4, 'name 4' => 1/4}
+```
+
+"name 1" has exactly 50% of the negative vote, but we cannot remove it yet since the suggestion could still tie with another name if they are first place for two (50%) of the voters.
+
+So we look at the second to last row:
+
+```ruby
+['name 2', 'name 1', 'name 4', 'name 3']
+```
+
+Adding these results to the previous gives us this negative vote:
+
+```ruby
+{'name 1' => 3/4, 'name 2' => 1/4, 'name 3' => 2/4, 'name 4' => 2/4}
+```
+
+"name 1" now has over 50% of the negative vote, and can be eliminated from the contest.  With 'name 1' removed, our table now looks like this:
 
 | Voter A | Voter B | Voter C | Voter D |
 |---------|---------|---------|---------|
@@ -93,7 +119,10 @@ Both 'name 2' and 'name 4' broke the 50% barrier and can be removed.  Without th
 |---------|---------|---------|---------|
 | name 3  | name 3  | name 3  | name 3  |
 
-Again we look at the first row, and we now have a candidate with over 50% of the votes:  'name 3'.  Looking at the original voting table:  Does this seem fair?
+Again we look at the first row, and we now have a candidate with over 50% of the votes:  'name 3'.  Looking at the original voting table:  **Does this seem fair?**
+
+
+
 
 
 ### Optional
