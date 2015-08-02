@@ -1,6 +1,6 @@
 # EmotionalVoting
 
-An app for voting on what you like the most.
+An app for voting on what you like the most.  This project starts NOW, so please contact me if you want to participate.
 
 ## Motivation
 
