@@ -123,8 +123,6 @@ Again we look at the first row, and we now have a candidate with over 50% of the
 
 
 
-
-
 #### Positive voting
 
 Here are the original voting tables again:
@@ -197,6 +195,27 @@ Again we start by looking at the first row to see if there is a candidate with o
 Again we look at the first row, and we now have a candidate with over 50% of the votes:  'name 2'.  Looking at the original voting table:  **Does this seem fair?**
 
 
+
+#### Positive vs Negative voting
+
+Original voting table:
+
+| Voter A | Voter B | Voter C | Voter D |
+|---------|---------|---------|---------|
+| name 1  | name 2  | name 3  | name 4  |
+| name 3  | name 4  | name 2  | name 2  |
+| name 2  | name 1  | name 4  | name 3  |
+| name 4  | name 3  | name 1  | name 1  |
+
+Table with 'name 1' removed:
+
+| Voter A | Voter B | Voter C | Voter D |
+|---------|---------|---------|---------|
+| name 3  | name 2  | name 3  | name 4  |
+| name 2  | name 4  | name 2  | name 2  |
+| name 4  | name 3  | name 4  | name 3  |
+
+Using positive voting 'name 2' wins since every voter has 'name 2' in first or second place, while using negative voting 'name 3' wins since it had a strong presense at the top.
 
 
 
