@@ -18,7 +18,11 @@ Most often, participants will like their own suggestions best, so if each partic
 
 ### One suggestion per participant, multiple votes per participant.
 
-One way to avoid the 
+One way to avoid the one vote per suggestion is to give multiple votes per participant.  People could still put all their votes on their own suggestion, but that can be avoided by only allowing one vote per person on each suggestion.  This should lead to the most liked suggesitons getting the most votes.
+
+...what about disliked suggestions ?
+
+### Any number of suggestions per participant, priority voting
 
 
 ...wll be continued...
