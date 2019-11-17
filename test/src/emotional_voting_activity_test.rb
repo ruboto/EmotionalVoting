@@ -1,4 +1,4 @@
-activity Java::org.ruboto.apps.emotional_voting.EmotionalVotingActivity
+activity Java::org.ruboto.apps.fair_voting.FairVotingActivity
 
 setup do |activity|
   start = Time.now

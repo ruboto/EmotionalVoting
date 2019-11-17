@@ -5,7 +5,7 @@ ruboto_import_widgets :Button, :LinearLayout, :TextView
 
 # http://xkcd.com/378/
 
-class EmotionalVotingActivity
+class FairVotingActivity
   def onCreate(bundle)
     super
     set_title 'Domo arigato, Mr Ruboto!'

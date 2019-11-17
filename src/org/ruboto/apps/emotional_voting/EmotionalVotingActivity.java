@@ -1,4 +1,4 @@
-package org.ruboto.apps.emotional_voting;
+package org.ruboto.apps.fair_voting;
 
-public class EmotionalVotingActivity extends org.ruboto.EntryPointActivity {
+public class FairVotingActivity extends org.ruboto.EntryPointActivity {
 }
