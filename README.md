@@ -10,9 +10,9 @@ One principle I feel is important is that voters should be encouraged to vote fo
 
 ## Example: Choose a project name
 
-What starting a project, it can be good to actually name it to give the participants a sense of what the purpose of the project is.  All participants should have the right to propose suggestions for the project name, but when there are too many suggestions, it becomes very hard to find the best one.
+When starting a project, it can be good to actually name it to give the participants a sense of what the purpose of the project is.  All participants should have the right to propose suggestions for the project name, but when there are too many suggestions, it becomes very hard to find the best one.
 
-A plain discussion can work, but strong personalities will influence the choices of others even if their suggestions are not the best.  The solution to this is a secret vote, so each participant can vote on the suggestion she likes the best without fear of offending the others.
+A plain discussion can work, but strong personalities will influence the choices of others even if their suggestions are not the best.  The solution to this is a secret vote, so participants can vote on the suggestion they like the best without fear of offending the others.
 
 Here are some ways to do it.
 
@@ -38,7 +38,7 @@ Please correct me if I am wrong here.  I want to learn :smile: .
 
 When voting for a president in France, there are lots of candidates, and voting starts by everyone voting for their favorite.  After the first round, unless there is a 50%+ majority for any candidate, the candidate(s) with the least votes are removed from the contest, and there is a new round of voting where everyone gets to vote for their favorite of the remaining candidates.  If there is as 50%+ majority, a winner is announced, else the candidate(s) with the least votes is again removed from the contest, and there is a new round of voting.
 
-This repeats until a candidate get over 50% of the votes, often the last vote has only two candidates.  That means that EVERYONE gets to vote for or against the actual candidate that wins (or abstain from voting).  This gives a nice warm feeling that YOUR vote counts.
+This repeats until a candidate gets over 50% of the votes, often the last vote has only two candidates.  That means that EVERYONE gets to vote for or against the actual candidate that wins (or abstain from voting).  This gives a nice warm feeling that YOUR vote counts.
 
 ### Any number of suggestions per participant, priority voting
 
